@@ -1,0 +1,247 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS核心属性</title>
+<style>
+*{ margin:0; padding:0;}
+body{ background: #F5F6EB; color: #333; font-size: 16px;}
+.boxs{ width:1000px; margin:0 auto; }
+h1,h2{padding: 20px 0;}
+h3{ background:#199475; color: #fff; padding:15px;margin:20px 0px;border-radius: 4px; font-size: 16px;}
+p{ line-height: 40px;}
+ul li{ list-style: none;line-height: 30px;}
+ul li span{ color: red; font-weight: 700; font-size: 18px; display: block; border-radius: 4px; padding: 10px; font-size: 20px; padding-left: 0px;}
+em{ font-style: normal; color:red;}
+</style>
+</head>
+
+<body>
+<div class="boxs">
+	<h1>Day3：CSS属性组成和作用</h1>
+    <h2>学习目标</h2>
+    <ul >
+    	<li>1、css属性和属性值的定义</li>
+    	<li>2、css文本属性</li>
+    	<li>3、css列表属性</li>
+    	<li>4、css背景属性</li>
+    	<li>5、css边框属性</li>
+    	<li>6、css浮动属性</li>
+    </l>
+    <h3>一、css属性和属性值的定义</h3>
+    <p>属性：属性是指定选择符所具有的属性，它是css的核心，css2共有150多个属性</p>
+    <p>属性值：属性值包括法定属性值及常见的数值加单位，如25px，或颜色值等。</p>
+    <h3>二、CSS文本属性</h3>
+    <ul>
+    	<li>
+    		<span>1、文本大小：{font-size:value;}</span>
+    		<p><b>说明：</b></p>
+			<p>1） 属性值为数值型时，必须给属性值加单位，属性值为0时除外。</p>
+			<p>2）单位还可以是pt，9pt=12px;</p>
+			<p>3）为了减小系统间的字体显示差异，IE Netscape Mozilla的浏览器制作商于1999年召开会议，<em>共同确定16px/ppi为标准字体大小默认值,即1em.默认情况下，</em>1em=16px,0.75em=12px;  rem<br />
+    	</p>
+    	</li>
+    	<li>
+    		<span>2、文本颜色：{color:颜色值;}</span>
+    		<p><b>说明：</b></p>
+				用十六进制(是计算机中数据的一种表示方法)表示颜色值：<br />
+				0  1  2  3  4   5  6  7  8  9<br />
+				0  1  2  3  4   5  6  7  8  9  A  B  C  D  E  F<br />
+				颜色模式：光色模式<br />
+				  R      G      B<br />
+				FF      00     00<br />
+				颜色值的缩写：<br />
+				当表示三原色的三组数字同时相同时，可以缩写为三位;<br />
+				当用十六进制表示颜色值时，需要在颜色值前加“#”<br />
+				#  fa   00    00
+    	</li>
+    	<li>
+    		<span>3、文本字体：{font-family:字体1，字体2，字体3；}
+</span>
+    		<p><b>说明：</b></p>
+				浏览器首先会寻找字体1、如存在就使用改字体来显示内容，如在字体1不存在的情况下，则会寻找字体2，如字体2也不存在，按字体3显示内容，如果字体3 也不存在；则按系统默认字体显示； <br />
+			<em>当字体是中文字体时，需加双引号；</em><br />
+			<em>当英文字体中有空格时，需加双引号如（“Times New Roman”）</em><br />
+			<em>当英文字体只有一个单词组成是不加双引号；如：（Arial）；</em><br />
+			<em>Windows中文版本操作系统下，中文默认字体为宋体或者新宋体，英文字体默认为Arial.</em>
+    	</li>
+    	<li>
+    		<span>4、文字加粗font-weight:bolder(更粗的)/bold（加粗）/normal（常规）/100—900;</span>
+    		<p><b>说明：</b></p>
+				在css规范中，把字体的粗细分为9个等级，分别为100——900，其中100对应最轻的字体变形，而900对应最重的字体变形，<br />
+100-400 一般   500常规字体    600-900加粗字体 
+
+    	</li>
+    	<li>
+    		<span>5、font-style：italic/oblique/normal（取消倾斜，常规显示）;
+</span>
+    		<p><b>说明：</b></p>
+				italic和oblique都是向右倾斜的文字, 但区别在于Italic是指斜体字，而Oblique是倾斜的文字，对于没有斜体的字体应该使用Oblique属性值来实现倾斜的文字效果.
+    	</li>
+    	<li>
+    		<span>6、水平对齐方式{text-align:left/right/center/justify（两端对齐中文不起作用）;}
+</span>
+    	</li>
+    	<li>
+    		<span>7、文字行高 {line-height:normal/value;}</span>
+    		<p><b>说明：</b></p>
+				当单行文本的行高<em>等于</em>容器高时，可实现单行文本在容器中<em>垂直方向居中对齐；</em><br />
+				当单行文本的行高<em>小于</em>容器高时，可实现单行文本在容器中<em>垂直中齐以上；</em><br />
+				当单行文本的行高<em>大于</em>容器高时，可实现单行文本在容器中<em>垂直中齐以下</em>（IE6及以下版本存在浏览器兼容问题）
+<br />
+    	</li>
+    	<li>
+    		*文字属性简写：font:12px/24px  "宋体";<br />
+			font属性的简写：字号，行高，字体<br />
+			font-size:12px; line-height:24px; font-family:”宋体”；<br />
+			<b><em>font属性的简写：</em></b><br />
+			说明:font的属性值应按以下次序书写(各个属性之间用空格隔开)<br />
+			顺序: font-style  font-weight  font-size / line-height  font-family<br />
+    		<p><b>注意：</b></p>
+				
+				<em>(1)简写时 , font-size和line-height只能通过斜杠/组成一个值，不能分开写。<br />
+(2) 顺序不能改变 ,</em>这种简写法只有在同时指定font-size和font-family属性时才起作用,而且,你没有设定font-weight , font-style , 他们会使用缺省值（默认值）。
+
+	
+    	</li>
+    	<li>
+    		<span>6、水平对齐方式{text-align:left/right/center/justify（两端对齐中文不起作用）;}
+</span>
+    	</li>
+    	<li>
+		<span>7、文本修饰 					text-decoration:none/underline/overline/line-through
+		</span>
+		<p><b>说明：</b></p>
+		none:没有修饰<br />
+		underline:添加下划线<br />
+		overline:添加上划线<br />
+		line-through:添加删除线
+		</li>
+		<li>
+			<span>8、首行缩进：{text-indent:value;}</span>
+			<p><b>说明：</b></p>
+			<p>1）text-indent可以取负值；</p>
+			<p>2）text-indent属性只对第一行起作用。</p>
+    	</li>
+    	<li>
+			<span>9、字间距{letter-spacing:value;}控制英文字母或汉字的字距。</span>
+    	</li>
+    	 	<li>
+			<span>10、词间距{word-spacing:value;}控制英文单词词距。</span>
+    	</li>
+    			<li>
+			<span>11、文本流控制{layout-flow:horizontal/vertical-ideographic;}</span>
+			<p><b>说明：</b></p>
+			<p>1）horizontal:自左向右</p>
+			<p>2）vertical-ideographic:自上而下		</p>
+		</li>
+    </ul>
+<h3>三、CSS列表属性</h3>
+<ul>
+	<li>
+		<span>1、定义列表符号样式
+		</span>
+		<p>list-style-type：disc(实心圆)/circle(空心圆)/square(实心方块)/none(去掉列表符号)；list-style-type:none===list-style:none;
+		</p>
+	</li>
+	<li>
+		<span>2、使用图片作为列表符号
+		</span>
+		<p>list-style-image：url(所使用图片的路径及全称)；
+		</p>
+	</li>
+	<li>
+		<span>3、定义列表符号的位置
+		</span>
+		<p>list-style-position:outside(外边)/inside(里边)；
+		</p>
+		<p><em>list-style:none;去掉列表符号 </em></p>
+		<h3>四、边框的属性和属性值</h3>
+        <p>border:边框宽度 边框风格 边框颜色;</p>
+        <p>例如：border:5px solid #ff0000</p>
+        <p>边框：border,网页中很多修饰性线条都是由边框来实现的。</p>
+        <p>边框宽度：border-width:</p>
+        <p>边框颜色：border-color:</p>
+        <p>边框样式：<em>border-style:solid(实线)/dashed(虚线)dotted(点划线)double(双线)</em>可单独设置一方向边框，</p>
+        <p>可单独设置一方向边框，</p>
+        <p>border-bottom:边框宽度 边框风格 边框颜色;底边框</p>
+        <p>border-left:边框宽度 边框风格 边框颜色;左边框</p>
+        <p>border-right:边框宽度 边框风格 边框颜色;右边框</p>
+        <p>border-top:边框宽度 边框风格 边框颜色;上边框</p>
+        <p>&nbsp;</p>
+	</li>
+</ul>
+<h3>五、CSS背景属性</h3>
+<ul>
+	<li>
+		<span>1、背景颜色 {background-color:颜色值;}</span>		
+	</li>
+	<li>
+		<span>2、背景图片的设置  background-image：url(背景图片的路径及全称)；</span>	
+			背景图片的显示原则<br />
+
+1）容器尺寸等于图片尺寸，背景图片正好显示在容器中<br />
+ 2）容器尺寸大于图片尺寸，背景图片将默认平铺，直至铺满元素；<br />
+ 3）容器尺寸小于图片尺寸，只显示元素范围以内的背景图。<br />
+网页上有两种图片形式：插入图片、背景图；<br />
+<em>插入图片：</em>属于网页内容，也就是结构。<br />
+<em>背景图：</em>属于网页的表现，背景图上可以显示文字、插入图片、表格等。<br />
+
+
+	</li>
+	<li>
+		<span>3、背景图片平铺属性{background-repeat:no-repeat/repeat/repeat-x/repeat-y }
+</span>	
+	</li>
+	<li>
+		<span>4、背景图的固定
+性{{background-attachment:scroll(滚动)/fixed(固定);}
+</span>
+ fixed 固定，不随内容一块滚动；<br />
+   scroll:随内容一块滚动。
+	</li>
+	<li>
+		<span>5、背景图的位置
+性{background-position:left/center/right/数值  top/center/bottom/数值;}
+</span>
+ 水平方向上的对齐方式（left/center/right）或值    <br />
+   垂直方向上的对齐方式(top/center/bottom)或值 <br />
+   background-position:值1    值2; <br />
+两个值 ：第一个值表示水平位置的值，第二个值：表示垂直的位置。 <br />
+当两个值都是center的时候写一个值就可以代表的是水平位置和垂直位置 <br />
+说明：向左方向，向上方向是负值 <br />
+<em>背景属性的缩写语法： </em><br />
+background:属性值1   属性值2   属性值3； <br />
+背景缩写：background:url（背景图片的路径及全称） no-repeat center top #f00；<br />
+<em>网页上常用的图片格式（压缩图片）</em><br />
+1)jpg :有损压缩格式，靠损失图片本身的质量来减小图片的体积，适用于颜色丰富的图像;(像素点组成的，像素点越多会越清晰 )如果网页中<br />
+2）gif：有损压缩格式，靠损失图片的色彩数量来减小图片的体积，支持透明，支持动画，适用于颜色数量较少的图像;<br />
+3)png:有损压缩格式，损失图片的色彩数量来减小图片的体积，支持透明，不支持动画，是fireworks的 源文件格式，适用于颜色数量较少的图像;
+<br />
+
+	</li>
+</ul>
+<h3>六、CSS浮动属性</h3>
+<p>
+	<em>语法：float:none/left/right;<br />
+</em></p>
+<p><em>无论多么复杂的布局，其基本出发点均是：“如何在一行显示多个div元素”。</em></p>
+<p>显然标准流已经无法满足需求，这就要用到浮动。</p>
+浮动可以理解为让某个div元素脱离标准流，漂浮在标准流之上，和标准流不是一个层次。</p>
+<p><em>页面浮动多个DIV的规律：</em></p>
+<p>假如某个div元素A是浮动的，如果A元素上一个元素也是浮动的，那么A元素会跟随在上一个元素的后边(如果一行放不下这两个元素，那么A元素会被挤到下一行)；如果A元素上一个元素是标准流中的元素，那么A的相对垂直位置不会改变，也<p>就是说A的顶部总是和上一个元素的底部对齐。</p>
+<p>div的顺序是HTML代码中div的顺序决定的。</p>
+<p>靠近页面边缘的一端是前，远离页面边缘的一端是后。</p>
+<p>经过上边的学习，可以看出：元素浮动之前，也就是在标准流中，是竖向排列的，而浮动之后可以理解为横向排列</p>
+<p><em>清除浮动可以理解为打破横向排列</em>。</p>
+<p><em>清除浮动的关键字是clear，语法：</em></p>
+<p>clear : none | left | right | both</p>
+<p>none：默认值。允许两边都可以有浮动对象</p>
+<p>left：不允许左边有浮动对象</p>
+<p>right  :  不允许右边有浮动对象</p>
+<p>both  :  不允许有浮动对象</p>
+<p><em>有一点是要记住的那就是</em></p>
+对于CSS的清除浮动(clear)，一定要牢记：这个规则只能影响使用清除的元素本身，不能影响其他元素<br />
+<br />
+</body>
+</html>

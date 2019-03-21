@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+			margin:0;
+			padding: 0;
+		      }
+		body{
+			background: url(img/demo-1-bg.jpg);
+		     }
+		
+			.register{
+			width:330px;
+			height: 430px;
+			padding: 10px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -165px;
+			margin-top: -215px;
+			
+		}
+		.he{
+			height: 50px;
+			text-align: center;
+			line-height: 100px;
+			font: 20px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
+			color: white;
+		}
+		
+		.form1{
+			height: 46px;
+			border: 2px solid rgba(101,136,106,0.5);
+			margin-bottom: 30px;
+			border-radius:40px ;
+		}
+		
+		label{
+			display: block;
+			width:46px;
+			height: 46px;
+			text-align: center;
+			line-height: 46px;
+			float: left;
+		}
+		
+			.na{
+			width: 25px;
+	        height: 25px;
+			background: url(img/login_ico.png);
+			display: block;
+			background-position:  -125px 0;
+			margin: 10px 13px;
+			float: left;
+			
+		}
+		.pw{	
+			display: block;
+			width: 25px;
+			height: 25px;
+			background: url(img/login_ico.png);
+			background-position: -125px -34px;
+			margin: 10px 13px;
+			float: left;
+		}
+		.inpu1{
+			width:274px;
+			height: 44px;
+			border: 0;
+			display: block;
+			outline: none;
+			color: #ffffff;
+			background: none;
+			border-top-right-radius: 20px;
+            border-bottom-right-radius:20px;
+            float: left;
+		}
+		.bu1{
+			width:330px;
+			height: 40px;
+			display: block;
+			font-size: 20px;
+			border-radius: 50px;
+			background: #0096e6;
+			color: white;
+			outline: none;
+		    
+		}
+		
+		</style>
+		
+	</head>
+	<body>
+		
+<div class="register">
+	<div class='he' ><p>欢迎注册</p></div>
+<form action="" method="POST">
+
+<div class="form1">
+	<span class='na'></span><input class='inpu1' type="text" name="name" placeholder="用户名"/>
+</div>
+
+<div class="form1">
+	<span class='pw'></span><input class='inpu1' type='password'name="pw" placeholder="密码" />
+</div>
+
+<div class="form1">
+	<span class='pw'></span><input class='inpu1' type='password'name="pw1" placeholder="确认密码"/>
+</div>
+
+
+	<input class='bu1' type="submit" value="注册"/>
+
+
+</form>
+
+	</body>
+</html>

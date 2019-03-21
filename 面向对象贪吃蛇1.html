@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div class="fa"></div>
+		<script>
+			
+			function She(){
+				this.derection = "right"
+				this.c_width = "600px";
+				this.c_height = "600px";
+				this.s_width = "20px";
+				this.s_height = "20px";
+				this.content = [
+					{x:3,y:1,color:"red"},
+					{x:2,y:1,color:"orange"},
+					{x:1,y:1,color:"orange"},
+					]
+				this.food_content = []
+				this.sheobj=[]
+				this.fa = document.querySelector(".fa");
+				this.food_obj  = []
+				this.finit = function(){
+					var son = document.createElement("div");
+					son.style.width = this.s_width;
+					son.style.height = this.s_height;
+					var x = parseInt(Math.random()*30);
+					var y = parseInt(Math.random()*30);
+					this.food_content[0] = x;
+					this.food_content[1] = y;
+					
+					son.style.left=x*20+"px";
+					son.style.top=y*20+"px";
+					son.style.backgroundColor = "blue";
+					son.style.position = "absolute";
+					this.fa.appendChild(son)
+					this.food_obj.push(son)
+				}
+				
+				this.fshan = function(){
+					this.food_obj[0].parentNode.removeChild(this.food_obj[0])
+					this.food_obj = [];
+				}
+				
+				this.fxian = function(){
+					var son = document.createElement("div") ;
+					son.style.width = this.s_width;
+					son.style.height = this.s_height;
+					var x = parseInt(Math.random()*30);
+					var y = parseInt(Math.random()*30);
+					this.food_content[0] = x;
+					this.food_content[1] = y;
+					
+					son.style.left=20*x+"px";
+					son.style.top=20*y+"px";
+					son.style.backgroundColor = "blue";
+					son.style.position = "absolute";
+					this.fa.appendChild(son)
+					this.food_obj.push(son)
+				}
+				
+				
+				this.forms = function(){
+					
+					this.fa.style.width = this.c_width;
+					this.fa.style.height = this.c_height;
+					this.fa.style.backgroundColor = "green"
+					this.fa.style.position = "relative";
+				}
+				
+				this.init = function(){
+					for(var i=0;i<3;i++){
+					var son = document.createElement("div");
+					son.style.width = this.s_width;
+					son.style.height = this.s_height;
+					son.style.left=this.content[i].x*20+"px";
+					console.log(this.content[i].x*20+"px")
+					son.style.top=this.content[i].y*20+"px";
+					son.style.backgroundColor = this.content[i].color;
+					son.style.position = "absolute"
+					this.fa.appendChild(son)   
+					this.sheobj.push(son)
+					}
+				}
+				this.move = function(){
+					   var len = this.content.length-1;
+				       var last = {x:this.content[len].x,y:this.content[len].y,color:this.content[len].color}
+					for(var i=len;i>0;i--){//
+						this.content[i].x = this.content[i-1].x;
+						this.content[i].y = this.content[i-1].y;
+					}
+						switch(this.derection){
+						case "right":{
+						this.content[0].x += 1;
+						break;
+						}
+						case "left":{
+						this.content[0].x -= 1;
+						break;
+						}
+						case "top":{
+						this.content[0].y -= 1;
+						break;
+						}
+						case "buttom":{
+						this.content[0].y+= 1;
+						break;
+						}
+						}
+					console.log("cx"+this.content[0].x)
+					console.log("cy"+this.content[0].y)
+					console.log("fx"+this.food_content[0])
+					console.log("fy"+this.food_content[1])
+					
+					if((this.content[0].x == this.food_content[0])&& (this.content[0].y == this.food_content[1]))
+					{
+						
+						console.log("碰撞！！！！！")
+						this.content.push(last);
+						this.fshan();
+						this.fxian();
+						
+					}
+					
+					
+					
+					
+				
+					
+					
+					
+					
+					
+				}
+				this.shan = function(){
+					for(var i=0;i<this.sheobj.length;i++){
+						this.sheobj[i].parentNode.removeChild(this.sheobj[i])
+				}
+					this.sheobj = []
+				}
+				this.xian = function(){
+					for(var i=0;i<this.content.length;i++){
+					var son = document.createElement("div");
+					son.innerHTML = i
+					son.style.textAlign = "center";
+					son.style.lineHeight = "20px"
+					son.style.color = "white"
+					son.style.width = this.s_width;
+					son.style.height = this.s_height;
+					son.style.left=this.content[i].x*20+"px";
+					son.style.top=this.content[i].y*20+"px";
+					son.style.backgroundColor = this.content[i].color;
+					son.style.position = "absolute"
+					this.fa.appendChild(son)   
+					this.sheobj.push(son)
+				}
+					
+			}
+				
+			
+			}
+			
+			//food :食物部分；
+			baba = new She();
+			baba.forms();
+			baba.init();
+			baba.finit();
+			function is_end(){
+				if((baba.content[0].x==30 ) || (baba.content[0].y==30)||(baba.content[0].x==-1 ) || (baba.content[0].y==-1))
+				{
+					clearInterval(stop)
+				}
+			}
+			
+			
+			function listn(){
+			document.addEventListener("keydown",function(evt){
+				switch(evt.keyCode)
+				{
+					case 38:console.log(evt.keyCode);baba.derection = "top";break;
+					case 40:console.log(evt.keyCode);baba.derection = "buttom";break;
+					case 37:console.log(evt.keyCode);baba.derection = "left";break;
+					case 39:console.log(evt.keyCode);baba.derection = "right";break;
+					
+				}
+				
+			})
+			}
+			
+			
+			
+			listn();
+			var stop = setInterval(function(){
+				baba.move();
+				is_end();
+				baba.shan();
+			    baba.xian();
+				
+			},150)		
+			
+			
+			
+		</script>
+	</body>
+</html>

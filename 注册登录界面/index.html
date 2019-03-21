@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<style>
+		*{
+			margin:0;
+			padding: 0;
+		}
+		body{
+			background: url(img/demo-1-bg.jpg);
+		}
+		.login{
+			width:330px;
+			height: 430px;
+			padding: 10px;
+			position: absolute;
+			left: 50%;
+			top: 50%;
+			margin-left: -165px;
+			margin-top: -215px;
+			
+		}
+		.he{
+			height: 50px;
+			text-align: center;
+			line-height: 100px;
+			font: 20px "microsoft yahei",Helvetica,Tahoma,Arial,"Microsoft jhengHei",sans-serif;
+			color: white;
+		}
+		.inpu,.bu,.bu1{
+			height: 46px;
+			border: 2px solid rgba(101,136,106,0.5);
+			margin-bottom: 30px;
+			border-radius:40px ;
+		}
+		.bu1{
+			width:330px;
+			display: block;
+			font-size: 20px;
+			border-radius: 50px;
+			background: #0096e6;
+			color: white;
+			outline: none;
+		
+		}
+		.na{
+			width: 25px;
+	        height: 25px;
+			background: url(img/login_ico.png);
+			display: block;
+			background-position:  -125px 0;
+			margin: 10px 13px;
+			float: left;
+			
+		}
+		.pw{	
+			display: block;
+			width: 25px;
+			height: 25px;
+			background: url(img/login_ico.png);
+			background-position: -125px -34px;
+			margin: 10px 13px;
+			float: left;
+		}
+		.inpu1{
+			float: left;
+			width:250px;
+			height: 44px;
+			border: none;
+			display: block;
+			outline: none;
+			color: #ffffff;
+			background: none;
+		}
+	</style>
+	<body>
+			<div class='login'>
+				<div class='he' ><p>欢饮你</p></div>
+				<div class='form'>
+					<form action='' method="post">
+					<div class='inpu'>
+						<span class='na'></span><input class='inpu1' type='text' placeholder='请输入账号'/>
+					</div>
+					<div class='inpu'>
+						<span class='pw'></span><input class='inpu1' type='password' placeholder='请输入密码'/>
+					</div>
+					<input class='bu1' value='登陆' type='submit'/>
+					</form>
+				</div>
+			</div>
+	</body>
+</html>

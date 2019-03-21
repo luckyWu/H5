@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<style>
+*{ margin:0; padding:0;}
+body{ background: #F5F6EB; color: #333; font-size: 16px;padding:20px 50px;}
+.boxs{ width:1000px; margin:0 auto; }
+h1,h2{padding: 20px 0;}
+h3{ background:#199475; color: #fff; padding:15px;margin:20px 0px;border-radius: 4px; font-size: 16px;}
+p{ line-height: 40px;}
+ul li{ list-style: none;line-height: 30px;}
+ul li span{ color: red; font-weight: 700; font-size: 18px; display: block; border-radius: 4px; padding: 10px; font-size: 20px; padding-left: 0px;}
+em{ font-style: normal; color:red;}
+</style>
+</head>
+<body>
+	<h2>宽高自适应</h2>
+	<p>网页布局中经常要定义元素的宽和高。但很多时候我们希望元素的大小能够根据窗口或子元素自动调整，这就是自适应。<br>
+	自适应的优点：<br>
+	元素自适应在网页布局中非常重要，它能够使网页显示更灵活，可以适应在不同设备、不同窗口和	不同分辨率下显示。
+	</p>
+	<h3>（1）宽度自适应</h3>
+	<p>元素宽度设置为100%。（块元素宽度默认为100%）
+    或者不设置宽度（width）;（宽度是父元素的宽度）
+</p>
+	<h3>（2）高度自适应</h3>
+	<p>        <span>1)自适应元素高度</span>：height:auto;或者不设置;（是子元素撑开父元素的高度）
+
+<br>
+        <span>2)元素高度自适应窗口高度</span>
+        设置方法：html,body{height:100%;}
+	注：如果设置子元素的高度跟随父元素的高度变化而变化，那么父元素必须有高度。
+</p>
+	<h3>(3)元素具备最小高度的自适应</h3>
+	<p>min-height属性：最小高度；(IE6浏览器不识别该属性)
+<br>
+<span>hack1:</span>min-height:value;_height:value;
+<br>
+<span>hack2:</span>min-height:value;  height:auto!important;height:value;  
+</p>
+	<p><span class="redc">说明：</span>height属性在IE6里就类似min-height作用。
+
+min-height（最小高度）
+
+max-height(最大高度)  
+max-height:200px; height:200px!important;
+
+min-width(最小宽度)
+
+max-width(最大宽度)
+
+注：IE6及以下版本不识别该组属性。
+</p>
+	<h3>过滤器(filter)</h3>
+	<p><span>1）_ 下划线属性过滤器</span>
+    当在一个属性前面增加了一个下划线后，由于符合标准的浏览器不能识别带有下划线的属性而忽略了这个声明，但是在IE6及更低版本浏览器中会继续解析这个规则。
+
+语法：选择符{  _属性：属性值；}
+
+此方法是区分IE6浏览器和其他浏览器的方法；
+</p>
+<p><span>2）!important关键字过滤器</span>
+它表示所附加的声明具有最高优先级的意思。被浏览器优先显示。（IE6不识别此写法）
+
+语法：选择符{属性：属性值!important;}
+
+</p>
+<p><span>3）* 属性过滤器</span>
+	    当在一个属性前面增加了*后，该属性能被IE7及以下浏览器识别，其它浏览器忽略该属性的作用。
+
+语法：选择符{*属性：属性值；}
+
+</p>
+<p><span>4）\9 ：  IE版本识别；其他浏览器都不识别</span>
+
+语法：选择符{属性：属性值\9;}
+
+
+<span>5）\0  :   IE8及以上版本识别；其他浏览器都不识别</span>
+
+    
+语法：选择符{属性：属性值\0；}
+</p>
+<h3>（4）浮动元素父元素高度自适应（高度塌陷）</h3>
+<p><span>hack1：给父元素添加声明overflow:hidden;(触发一个BFC)</span>
+<br>
+
+<span>hack2:在浮动元素下方添加空div,并给该元素添加</span>
+        声明：div{clear:both; height:0; overflow:hidden;}
+<br>
+
+<span>hack3:万能清除浮动法</span>
+选择符:after{content:".";clear:both;display:block;height:0;overflow:hidden;visibility:hidden;}
+</p>
+<h3>visibility:hidden/隐藏</h3>
+<p><span>visibility:hidden;和display:none;的区别</span>
+visibility:hidden;属性会使对象不可见，但该对象在网页所占的空间没有改变，等于留出了一块空白区域，而 display:none属性会使这个对象彻底消失不显示，也不再占用位置。
+</p>
+
+
+<h3>伪对象选择符</h3>
+<p><span>1）、::after :  与content属性一起使用，定义在对象后的内容。</span>
+语法：选择符：:after{content:”文字”;}<br>
+	选择符：:after{content:url(图片路径)；}<br>
+
+如：div::after{content:url(logo.jpg);}<br>
+        div::after{content:"文本内容";}
+</p>
+<p><span>2）、::before:     与content属性一起使用,定义在对象前 的内容。
+</span>
+如：div::before{content:"在其前放内容";}
+
+</p>
+<p><span>3）、::first-letter 定义对象内第一个字符的样式。
+</span>
+	说明：
+     *(该伪元素只能用于块级元素。)
+
+</p>
+<p><span>4）、：:first-line:定义对象内第一行的样式。
+</span>
+	说明：
+                                     *(该伪元素只能用于块级元素。) <br>
+                                          
+                                             
+</p>
+<p><span>5）、::selection定义被选中的样式。
+</span>
+<span class="redc">*ie6以下版本浏览器不支持伪对象选择符。</span>
+
+</p>
+</body>
+</html>
