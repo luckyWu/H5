@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+display:block
+        }
+   
+    </style>
+     <script src="js/jquery.js"></script>
+     <script src="js/test.js"></script>
+</head>
+<body><!--
+    <a href="http://image.hnol.net/c/2016-08/12/14/201608121457502271-2089977.jpg">
+        <img src="http://image.hnol.net/c/2016-08/12/14/201608121457502271-2089977.jpg"/>
+        </a>
+    -->
+    <input type="text" value="蛇" id="i1"/> 
+    <button id="load">LOAD</button>
+    <hr />
+    <textarea id="text" cols="50" rows="100"></textarea>
+    <script>
+        var urlone="http://api.tianapi.com/txapi/dream/"
+        var url = "http://api.tianapi.com/meinv/?key=eb0d10eed1a7c2a42ac0864c23803ac9&num=80";//天行数据的图片接口
+   /* $(function(){
+        $.getJSON(url,function(obj){
+            for(var i=0;i<obj.newslist.length;i++){
+                console.log(obj.newslist[i].picUrl)
+            $(document.body).append($("<a target=_blank>").text(obj.newslist[i].title).attr("href",obj.newslist[i].picUrl).css({"display":"block","float":"left"})
+            .append(
+                $("<img>").css({"width":"400px","height":"400px"}).attr("src",obj.newslist[i].picUrl)
+            )
+            )
+            $(document.body).prepend(
+							$("<img>").attr("src",obj.newslist[i].picUrl).css({"width":"100px","height":"100px"})
+						)
+						
+             }
+        })
+
+    })*/
+
+    
+    //用AJAX操作！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！
+     $(function(){    
+         var word = $("#i1").val().trim();
+         $("#load").on("click",function(){
+            
+             console.log(1)
+             $.ajax({
+               
+                 "url":urlone,  "type":"get",
+                 "data":{"key":"eb0d10eed1a7c2a42ac0864c23803ac9","word":word},
+               
+                 "dataType":"json",
+                 "success":function(evt){
+                    $("#text").text(evt.newslist[0].result);
+						}
+             })
+            
+         })
+     })
+    
+    </script>
+</body>
+</html>

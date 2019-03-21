@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style> 
+    *{
+        margin:0;
+        padding:0;
+    }
+    </style>
+</head>
+<body>
+    <div class="main"></div>
+    <script>
+        var bo = document.getElementsByTagName("body")[0];
+    var url = "http://api.tianapi.com/meinv/?key=eb0d10eed1a7c2a42ac0864c23803ac9&num=80";
+    var xhr = new XMLHttpRequest();
+    xhr.open("GEt",url);
+     xhr.send();
+    xhr.onreadystatechange = function(){
+        if (xhr.readyState == 4 && xhr.status == 200){
+            console.log("success")
+            var obj = JSON.parse(xhr.responseText)
+            for(var i=0;i<obj.newslist.length;i++){
+                var url = obj.newslist[i].picUrl;
+                console.log(url)
+                var img = document.createElement("img");
+                img.style.width = 300+"px";
+                img.src=url;
+                bo.appendChild(img)
+            }
+        }
+    }
+   
+    </script>
+</body>
+</html>
